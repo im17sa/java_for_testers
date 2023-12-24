@@ -10,9 +10,17 @@ public class Triangle {
     double side3;
 
     public Triangle(double a, double b, double c) {
-        this.side1 = a;
-        this.side2 = b;
-        this.side3 = c;
+        if (a < 0 || b < 0 || c < 0) {
+            throw new IllegalArgumentException("Длина стороны треугольника не может быть отрицательной");
+        }
+        else if ((a + b) < c || (a + c) < b || (b + c) < a) {
+            throw new IllegalArgumentException("Нарушается неравенство треугольника. Cумма двух любых сторон должна быть не меньше третьей стороны");
+        }
+        else {
+            this.side1 = a;
+            this.side2 = b;
+            this.side3 = c;
+        }
     }
 
 
