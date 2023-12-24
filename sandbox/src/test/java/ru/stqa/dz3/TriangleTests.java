@@ -26,17 +26,21 @@ public class TriangleTests {
             Assertions.fail();
         }
         catch (IllegalArgumentException exception) {
-            //Ok
         }
     }
     @Test
     void  theTriangleInequalityIsViolated(){
         try {
-            var s = new Triangle(15.0, 7.0, 7.0);
+            var s = new Triangle(16.0, 7.0, 7.0);
             Assertions.fail();
         }
         catch (IllegalArgumentException exception) {
-            //Ok
         }
+    }
+    @Test
+    void  sideComparison(){
+        Triangle  t1 = new Triangle(2, 3, 1);
+        Triangle  t2 = new Triangle(2, 1, 3);
+        Assertions.assertTrue(t1.sideComparison(t2));
     }
 }

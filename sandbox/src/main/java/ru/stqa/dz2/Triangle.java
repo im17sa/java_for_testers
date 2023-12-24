@@ -33,4 +33,18 @@ public class Triangle {
         double s = perimeter() / 2;
         return Math.sqrt(s*(s- this.side1)*(s- this.side2)*(s- this.side3));
     }
+
+    public boolean sideComparison(Triangle another){
+        if (this.side1 == another.side1 || this.side1 == another.side2 || this.side1 == another.side3) {
+
+            if (this.side2 == another.side1 || this.side2 == another.side2 || this.side2 == another.side3){
+
+                if (this.side3 == another.side1 || this.side3 == another.side2 || this.side3 == another.side3) {
+                    return true;
+                }
+
+            }
+        }
+        return false;
+    }
 }
