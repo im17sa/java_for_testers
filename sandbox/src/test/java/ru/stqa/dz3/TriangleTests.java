@@ -39,8 +39,8 @@ public class TriangleTests {
     }
     @Test
     void  sideComparison(){
-        Triangle  t1 = new Triangle(2, 3, 1);
-        Triangle  t2 = new Triangle(2, 1, 3);
+        Triangle  t1 = new Triangle(4, 6, 6);
+        Triangle  t2 = new Triangle(6, 4, 6);
         Assertions.assertTrue(t1.sideComparison(t2));
     }
 }

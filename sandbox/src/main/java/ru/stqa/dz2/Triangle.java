@@ -35,14 +35,17 @@ public class Triangle {
     }
 
     public boolean sideComparison(Triangle another){
-        if (this.side1 == another.side1 || this.side1 == another.side2 || this.side1 == another.side3) {
+        if ((perimeter()) == (another.perimeter())) { // Для проверки периметра, если он не совпадает, то дальше можно не идти по коду
 
-            if (this.side2 == another.side1 || this.side2 == another.side2 || this.side2 == another.side3){
+            if (this.side1 == another.side1 || this.side1 == another.side2 || this.side1 == another.side3) {
 
-                if (this.side3 == another.side1 || this.side3 == another.side2 || this.side3 == another.side3) {
-                    return true;
+                if (this.side2 == another.side1 || this.side2 == another.side2 || this.side2 == another.side3) {
+
+                    if (this.side3 == another.side1 || this.side3 == another.side2 || this.side3 == another.side3) {
+                        return true;
+                    }
+
                 }
-
             }
         }
         return false;
