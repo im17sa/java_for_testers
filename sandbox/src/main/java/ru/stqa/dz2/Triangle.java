@@ -1,5 +1,7 @@
 package ru.stqa.dz2;
 
+import java.util.Objects;
+
 public class Triangle {
     public static void main(String[] args) {
 
@@ -12,11 +14,9 @@ public class Triangle {
     public Triangle(double a, double b, double c) {
         if (a < 0 || b < 0 || c < 0) {
             throw new IllegalArgumentException("Длина стороны треугольника не может быть отрицательной");
-        }
-        else if ((a + b) < c || (a + c) < b || (b + c) < a) {
+        } else if ((a + b) < c || (a + c) < b || (b + c) < a) {
             throw new IllegalArgumentException("Нарушается неравенство треугольника. Cумма двух любых сторон должна быть не меньше третьей стороны");
-        }
-        else {
+        } else {
             this.side1 = a;
             this.side2 = b;
             this.side3 = c;
@@ -31,10 +31,12 @@ public class Triangle {
 
     public double area() {
         double s = perimeter() / 2;
-        return Math.sqrt(s*(s- this.side1)*(s- this.side2)*(s- this.side3));
+        return Math.sqrt(s * (s - this.side1) * (s - this.side2) * (s - this.side3));
     }
 
-    public boolean sideComparison(Triangle another){
+    @Override
+    public boolean equals(Object o) {
+        Triangle another = (Triangle) o;
         if ((perimeter()) == (another.perimeter())) { // Для проверки периметра, если он не совпадает, то дальше можно не идти по коду
 
             if (this.side1 == another.side1 || this.side1 == another.side2 || this.side1 == another.side3) {
@@ -44,10 +46,10 @@ public class Triangle {
                     if (this.side3 == another.side1 || this.side3 == another.side2 || this.side3 == another.side3) {
                         return true;
                     }
-
                 }
             }
         }
         return false;
     }
 }
+
