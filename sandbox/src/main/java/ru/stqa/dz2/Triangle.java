@@ -36,20 +36,17 @@ public class Triangle {
 
     @Override
     public boolean equals(Object o) {
-        Triangle another = (Triangle) o;
-        if ((perimeter()) == (another.perimeter())) { // Для проверки периметра, если он не совпадает, то дальше можно не идти по коду
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return (Double.compare(side1, triangle.side1) == 0 && Double.compare(side2, triangle.side2) == 0 && Double.compare(side3, triangle.side3) == 0)
+                || (Double.compare(side1, triangle.side2) == 0 && Double.compare(side2, triangle.side3) == 0 && Double.compare(side3, triangle.side1) == 0)
+                || (Double.compare(side1, triangle.side3) == 0 && Double.compare(side2, triangle.side1) == 0 && Double.compare(side3, triangle.side2) == 0);
+    }
 
-            if (this.side1 == another.side1 || this.side1 == another.side2 || this.side1 == another.side3) {
-
-                if (this.side2 == another.side1 || this.side2 == another.side2 || this.side2 == another.side3) {
-
-                    if (this.side3 == another.side1 || this.side3 == another.side2 || this.side3 == another.side3) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+    @Override
+    public int hashCode() {
+        return Objects.hash(side1, side2, side3);
     }
 }
 
